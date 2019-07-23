@@ -12,9 +12,10 @@ import { Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 
 import Home from "./layout/Home";
-import SystemDetails from "../components/system/SystemDetails";
+import PropertyDetails from "../components/property/PropertyDetails";
 import UserProfile from "./auth/UserProfile";
-import SystemDashboard from "./system/SystemDashboard";
+
+import PropertyDashBoard from "./property/PropertyDashBoard";
 import NavBar from "./layout/NavBar";
 import Alerts from "./layout/Alerts";
 import Register from "./auth/Register";
@@ -44,15 +45,14 @@ class App extends Component {
         <AlertProvider template={AlertTemplate} {...alertOptions}>
           <Router>
             <Fragment>
-              <NavBar />
               <Alerts />
-
+              <NavBar />
               <Switch>
-                <PrivateRoute exact path="/" component={SystemDashboard} />
+                <PrivateRoute exact path="/" component={PropertyDashBoard} />
                 <PrivateRoute
                   exact
                   path="/conditions"
-                  component={SystemDetails}
+                  component={PropertyDetails}
                 />
                 <PrivateRoute exact path="/profile" component={UserProfile} />
                 <Route exact path="/home" component={Home} />

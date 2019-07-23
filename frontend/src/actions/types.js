@@ -30,3 +30,7 @@ export const GET_PUMPS = "GET_PUMPS";
 export const DELETE_PUMPS = "DELETE_PUMPS";
 export const ADD_PUMPS = "ADD_PUMPS";
 export const CLEAR_PUMPS = "CLEAR_PUMPS";
+
+export const GET_PROPERTY = "GET_PROPERTY";
+export const DELETE_PROPERTY = "DELETE_PROPERTY";
+export const ADD_PROPERTY = "ADD_PROPERTY_PUMPS";
