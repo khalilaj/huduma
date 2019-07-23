@@ -64,7 +64,7 @@ export class NavBar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link className="navbar-brand" to="/home">
-              Hydrophiles App
+              Huduma App
             </Link>
           </div>
           {isAuthenticated ? authLinks : guestLinks}

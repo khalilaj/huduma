@@ -1,7 +1,7 @@
 {
-  "name": "hydrophiles",
+  "name": "huduma",
   "version": "1.0.0",
-  "description": "> A Hydroponic Management system built with Django/React/Redux app that uses token based authentication with django knox.",
+  "description": "> A Property Management system built with Django/React/Redux app that uses token based authentication with django knox.",
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack --mode development --watch ./frontend/src/index.js --output ./frontend/static/frontend/main.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/khalilaj/hydrophiles.git"
+    "url": "git+https://github.com/khalilaj/huduma.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/khalilaj/hydrophiles/issues"
+    "url": "https://github.com/khalilaj/huduma/issues"
   },
-  "homepage": "https://github.com/khalilaj/hydrophiles#readme",
+  "homepage": "https://github.com/khalilaj/huduma#readme",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",

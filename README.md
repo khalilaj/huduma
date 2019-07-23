@@ -1,4 +1,4 @@
-# Hydrophiles
+# Huduma
 
 > A Hydroponic management system built with Django/React/Redux app that uses token based authentication with django knox.
 
