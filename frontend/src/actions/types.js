@@ -33,4 +33,20 @@ export const CLEAR_PUMPS = "CLEAR_PUMPS";
 
 export const GET_PROPERTY = "GET_PROPERTY";
 export const DELETE_PROPERTY = "DELETE_PROPERTY";
-export const ADD_PROPERTY = "ADD_PROPERTY_PUMPS";
+export const ADD_PROPERTY = "ADD_PROPERTY";
+
+export const GET_AGREEMENT = "GET_AGREEMENT";
+export const DELETE_AGREEMENT = "DELETE_AGREEMENT";
+export const ADD_AGREEMENT = "ADD_AGREEMENT";
+
+export const GET_TRANSACTION = "GET_TRANSACTION";
+export const DELETE_TRANSACTION = "DELETE_TRANSACTION";
+export const ADD_TRANSACTION = "ADD_TRANSACTION";
+
+export const GET_TENANT = "GET_TRANSACTION";
+export const DELETE_TENANT = "DELETE_TENANT";
+export const ADD_TENANT = "ADD_TENANT";
+
+export const GET_UNIT = "GET_UNIT";
+export const DELETE_UNIT = "DELETE_UNI";
+export const ADD_UNIT = "ADD_UNIT";

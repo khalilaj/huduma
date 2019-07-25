@@ -1,13 +1,11 @@
 import React, { Fragment } from "react";
 
-import SystemCropAddForm from "./SystemCropAddForm";
-import SystemCrop from "./SystemCrop";
+import AgreementList from "./AgreementList";
 
 export default function AgreementDashboard() {
   return (
     <Fragment>
-      <SystemCropAddForm />
-      <SystemCrop />
+      <AgreementList />
     </Fragment>
   );
 }

@@ -1,12 +1,11 @@
 import React, { Fragment } from "react";
 
-import SystemCropAddForm from "./SystemCropAddForm";
-import SystemCrop from "./SystemCrop";
+import TenantList from "./TenantList";
 
 export default function TenantDashboard() {
   return (
     <Fragment>
-      <SystemCrop />
+      <TenantList />
     </Fragment>
   );
 }

@@ -33,7 +33,7 @@ export const deleteProperty = id => (dispatch, getState) => {
     .catch(err => console.log(err));
 };
 
-// ADD ADD_PROPERTY
+// ADD PROPERTY
 export const addProperty = property => (dispatch, getState) => {
   axios
     .post("/api/property/", property, tokenConfig(getState), {

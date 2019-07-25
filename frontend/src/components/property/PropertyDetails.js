@@ -7,9 +7,9 @@ import AgreementDashboard from "../agreement/AgreementDashboard";
 
 import UnitDashboard from "../unit/UnitDashboard";
 
-import TenantDashboard from "../tenant/TenantDashboard";
+import PropertyProfile from "./PropertyProfile";
 
-import SystemProfile from "./SystemProfile";
+import TenantDashboard from "../tenant/TenantDashboard";
 
 export class PropertyDetails extends Component {
   render() {
@@ -155,7 +155,7 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-property-tab"
           >
             <div>
-              <SystemProfile />
+              <PropertyProfile />
             </div>
           </div>
         </div>
