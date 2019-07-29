@@ -3,7 +3,7 @@ from django.db import models
 from property.models import Property
 
 class Unit(models.Model):
-    property = models.ForeignKey(Property, on_delete=None, blank=True, null=True)
+    property = models.ForeignKey(Property,  on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=30, blank=True, null=True)
     no_of_bed = models.IntegerField(blank=True, null=True)
     no_of_bathroom = models.IntegerField(blank=True, null=True)

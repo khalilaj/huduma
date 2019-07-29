@@ -31,8 +31,7 @@ export class AgreementList extends Component {
       },
       {
         Header: " Unit Name",
-        accessor: "property",
-        filterMethod: (filter, row) => row[filter.id].includes(filter.value)
+        accessor: "unit.name"
       },
       {
         Header: "Delete",
@@ -59,6 +58,7 @@ export class AgreementList extends Component {
           className="-striped -highlight"
           columns={columns}
           data={this.props.agreement}
+          filterable
         />
       </div>
     );

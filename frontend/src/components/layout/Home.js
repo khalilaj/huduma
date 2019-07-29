@@ -185,49 +185,7 @@ export default function Home() {
           </div>
         </div>
       </section>{/* #services */}
-      {/*==========================
-  Call To Action Section
-      ============================*/}
-      <section id="call-to-action" className="wow fadeIn">
-        <div className="container text-center">
-          <h3>Call To Action</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a className="cta-btn" href="#">Call To Action</a>
-        </div>
-      </section>{/* #call-to-action */}
-      {/*==========================
-  Skills Section
-      ============================*/}
-      <section id="skills">
-        <div className="container">
-          <header className="section-header">
-            <h3>Our Skills</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-          </header>
-          <div className="skills-content">
-            <div className="progress">
-              <div className="progress-bar bg-success" role="progressbar" aria-valuenow={100} aria-valuemin={0} aria-valuemax={100}>
-                <span className="skill">HTML <i className="val">100%</i></span>
-              </div>
-            </div>
-            <div className="progress">
-              <div className="progress-bar bg-info" role="progressbar" aria-valuenow={90} aria-valuemin={0} aria-valuemax={100}>
-                <span className="skill">CSS <i className="val">90%</i></span>
-              </div>
-            </div>
-            <div className="progress">
-              <div className="progress-bar bg-warning" role="progressbar" aria-valuenow={75} aria-valuemin={0} aria-valuemax={100}>
-                <span className="skill">JavaScript <i className="val">75%</i></span>
-              </div>
-            </div>
-            <div className="progress">
-              <div className="progress-bar bg-danger" role="progressbar" aria-valuenow={55} aria-valuemin={0} aria-valuemax={100}>
-                <span className="skill">Photoshop <i className="val">55%</i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       {/*==========================
   Facts Section
       ============================*/}
@@ -399,169 +357,7 @@ export default function Home() {
           </div>
         </div>
       </section>{/* #portfolio */}
-      {/*==========================
-  Clients Section
-      ============================*/}
-      <section id="clients" className="wow fadeInUp">
-        <div className="container">
-          <header className="section-header">
-            <h3>Our Clients</h3>
-          </header>
-          <div className="owl-carousel clients-carousel">
-            <img src="img/clients/client-1.png" alt="" />
-            <img src="img/clients/client-2.png" alt="" />
-            <img src="img/clients/client-3.png" alt="" />
-            <img src="img/clients/client-4.png" alt="" />
-            <img src="img/clients/client-5.png" alt="" />
-            <img src="img/clients/client-6.png" alt="" />
-            <img src="img/clients/client-7.png" alt="" />
-            <img src="img/clients/client-8.png" alt="" />
-          </div>
-        </div>
-      </section>{/* #clients */}
-      {/*==========================
-  Clients Section
-      ============================*/}
-      <section id="testimonials" className="section-bg wow fadeInUp">
-        <div className="container">
-          <header className="section-header">
-            <h3>Testimonials</h3>
-          </header>
-          <div className="owl-carousel testimonials-carousel">
-            <div className="testimonial-item">
-              <img src="img/testimonial-1.jpg" className="testimonial-img" alt="" />
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
-              <p>
-                <img src="img/quote-sign-left.png" className="quote-sign-left" alt="" />
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                <img src="img/quote-sign-right.png" className="quote-sign-right" alt="" />
-              </p>
-            </div>
-            <div className="testimonial-item">
-              <img src="img/testimonial-2.jpg" className="testimonial-img" alt="" />
-              <h3>Sara Wilsson</h3>
-              <h4>Designer</h4>
-              <p>
-                <img src="img/quote-sign-left.png" className="quote-sign-left" alt="" />
-                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                <img src="img/quote-sign-right.png" className="quote-sign-right" alt="" />
-              </p>
-            </div>
-            <div className="testimonial-item">
-              <img src="img/testimonial-3.jpg" className="testimonial-img" alt="" />
-              <h3>Jena Karlis</h3>
-              <h4>Store Owner</h4>
-              <p>
-                <img src="img/quote-sign-left.png" className="quote-sign-left" alt="" />
-                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                <img src="img/quote-sign-right.png" className="quote-sign-right" alt="" />
-              </p>
-            </div>
-            <div className="testimonial-item">
-              <img src="img/testimonial-4.jpg" className="testimonial-img" alt="" />
-              <h3>Matt Brandon</h3>
-              <h4>Freelancer</h4>
-              <p>
-                <img src="img/quote-sign-left.png" className="quote-sign-left" alt="" />
-                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                <img src="img/quote-sign-right.png" className="quote-sign-right" alt="" />
-              </p>
-            </div>
-            <div className="testimonial-item">
-              <img src="img/testimonial-5.jpg" className="testimonial-img" alt="" />
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
-              <p>
-                <img src="img/quote-sign-left.png" className="quote-sign-left" alt="" />
-                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                <img src="img/quote-sign-right.png" className="quote-sign-right" alt="" />
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>{/* #testimonials */}
-      {/*==========================
-  Team Section
-      ============================*/}
-      <section id="team">
-        <div className="container">
-          <div className="section-header wow fadeInUp">
-            <h3>Team</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-          </div>
-          <div className="row">
-            <div className="col-lg-3 col-md-6 wow fadeInUp">
-              <div className="member">
-                <img src="img/team-1.jpg" className="img-fluid" alt="" />
-                <div className="member-info">
-                  <div className="member-info-content">
-                    <h4>Walter White</h4>
-                    <span>Chief Executive Officer</span>
-                    <div className="social">
-                      <a href><i className="fa fa-twitter" /></a>
-                      <a href><i className="fa fa-facebook" /></a>
-                      <a href><i className="fa fa-google-plus" /></a>
-                      <a href><i className="fa fa-linkedin" /></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div className="member">
-                <img src="img/team-2.jpg" className="img-fluid" alt="" />
-                <div className="member-info">
-                  <div className="member-info-content">
-                    <h4>Sarah Jhonson</h4>
-                    <span>Product Manager</span>
-                    <div className="social">
-                      <a href><i className="fa fa-twitter" /></a>
-                      <a href><i className="fa fa-facebook" /></a>
-                      <a href><i className="fa fa-google-plus" /></a>
-                      <a href><i className="fa fa-linkedin" /></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-              <div className="member">
-                <img src="img/team-3.jpg" className="img-fluid" alt="" />
-                <div className="member-info">
-                  <div className="member-info-content">
-                    <h4>William Anderson</h4>
-                    <span>CTO</span>
-                    <div className="social">
-                      <a href><i className="fa fa-twitter" /></a>
-                      <a href><i className="fa fa-facebook" /></a>
-                      <a href><i className="fa fa-google-plus" /></a>
-                      <a href><i className="fa fa-linkedin" /></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div className="member">
-                <img src="img/team-4.jpg" className="img-fluid" alt="" />
-                <div className="member-info">
-                  <div className="member-info-content">
-                    <h4>Amanda Jepson</h4>
-                    <span>Accountant</span>
-                    <div className="social">
-                      <a href><i className="fa fa-twitter" /></a>
-                      <a href><i className="fa fa-facebook" /></a>
-                      <a href><i className="fa fa-google-plus" /></a>
-                      <a href><i className="fa fa-linkedin" /></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>{/* #team */}
+      
       {/*==========================
   Contact Section
       ============================*/}
@@ -672,22 +468,11 @@ export default function Home() {
       </div>
       <div className="container">
         <div className="copyright">
-          © Copyright <strong>BizPage</strong>. All Rights Reserved
-        </div>
-        <div className="credits">
-          {/*
-      All the links in the footer should remain intact.
-      You can delete the links only if you purchased the pro version.
-      Licensing information: https://bootstrapmade.com/license/
-      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-    */}
-          Best <a href="https://bootstrapmade.com/">Bootstrap Templates</a> by BootstrapMade
+          © Copyright <strong>Huduma Realtors</strong>. All Rights Reserved
         </div>
       </div>
     </footer>{/* #footer */}
-    <a href="#" className="back-to-top"><i className="fa fa-chevron-up" /></a>
-    {/* JavaScript Libraries */}
-    {/* Contact Form JavaScript File */}
+    <a href="#" className="back-to-top"><i className="fa fa-chevron-up" /></a> 
   </div>
   
   );

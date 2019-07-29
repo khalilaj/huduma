@@ -7,9 +7,9 @@ from unit.models import Unit
 
 
 class Transaction(models.Model):
-    property = models.ForeignKey(Property, on_delete=None, blank=True, null=True)
-    unit = models.ForeignKey(Unit, on_delete=None, blank=True, null=True)
-    tenant = models.ForeignKey(Tenant, on_delete=None, blank=True, null=True)
+    property = models.ForeignKey(Property,  on_delete=models.CASCADE, blank=True, null=True)
+    unit = models.ForeignKey(Unit,  on_delete=models.CASCADE, blank=True, null=True)
+    tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, blank=True, null=True)
 
     name = models.CharField(max_length=100, blank=True, null=True)
     date_paid = models.DateField(blank=True, null=True) 

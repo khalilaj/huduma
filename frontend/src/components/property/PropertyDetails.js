@@ -15,7 +15,10 @@ import TenantList from "../tenant/TenantList";
 
 import { connect } from "react-redux";
 
-import { returnErrors } from "../../actions/messages";
+import UnitForm from "../unit/UnitForm";
+import TenantForm from "../tenant/TenantForm";
+import TransactionForm from "../transaction/TransactionForm";
+import AgreementForm from "../agreement/AgreementForm";
 
 export class PropertyDetails extends Component {
   render() {
@@ -26,19 +29,20 @@ export class PropertyDetails extends Component {
     });
 
     const filteredUnit = _.filter(this.props.unit, function(o) {
-      return o.property == id;
+      return o.property.id == id;
     });
     const filteredAgreement = _.filter(this.props.agreement, function(o) {
-      return o.property == id;
+      return o.property.id == id;
     });
     const filteredTenant = _.filter(this.props.tenant, function(o) {
-      return o.property == id;
+      return o.property.id == id;
     });
     const filteredTransaction = _.filter(this.props.transaction, function(o) {
-      return o.property == id;
+      return o.property.id == id;
     });
-
-    console.log(property);
+    if (this.props.transaction == []) {
+      console.log("Loading ...");
+    }
     return (
       <div style={{ paddingTop: "10px" }}>
         <ul className="nav  nav-pills mb-3 " id="pills-tab" role="tablist">
@@ -79,7 +83,7 @@ export class PropertyDetails extends Component {
               aria-controls="pills-tenants"
               aria-selected="false"
             >
-              Tenants
+              Agreements
             </a>
           </li>
           <li className="nav-item">
@@ -92,7 +96,7 @@ export class PropertyDetails extends Component {
               aria-controls="pills-agreement"
               aria-selected="false"
             >
-              Agreements
+              Tenants
             </a>
           </li>
           <li className="nav-item">
@@ -144,6 +148,11 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-transaction-tab"
           >
             <div>
+              <TransactionForm
+                propId={this.props.match.params.id}
+                unit={filteredUnit}
+                tenant={filteredTenant}
+              />
               <TransactionList
                 propId={this.props.match.params.id}
                 transaction={filteredTransaction}
@@ -157,9 +166,14 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-tenant-tab"
           >
             <div>
-              <TenantList
+              <AgreementForm
                 propId={this.props.match.params.id}
+                unit={filteredUnit}
                 tenant={filteredTenant}
+              />
+              <AgreementList
+                propId={this.props.match.params.id}
+                agreement={filteredAgreement}
               />
             </div>
           </div>
@@ -170,10 +184,11 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-agreement-tab"
           >
             <div>
-              <AgreementList
+              <TenantForm
                 propId={this.props.match.params.id}
-                agreement={filteredAgreement}
+                unit={filteredUnit}
               />
+              <TenantList tenant={filteredTenant} />
             </div>
           </div>
           <div
@@ -183,10 +198,8 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-unit-tab"
           >
             <div>
-              <UnitList
-                propId={this.props.match.params.id}
-                unit={filteredUnit}
-              />
+              <UnitForm propId={this.props.match.params.id} />
+              <UnitList unit={filteredUnit} />
             </div>
           </div>
           <div

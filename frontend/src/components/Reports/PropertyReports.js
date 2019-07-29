@@ -49,7 +49,7 @@ export class PropertyReports extends PureComponent {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="unit" />
+              <XAxis dataKey="unit.name" />
               <YAxis />
               <Tooltip />
               <Legend />
@@ -77,7 +77,7 @@ export class PropertyReports extends PureComponent {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="unit" />
+              <XAxis dataKey="unit.name" />
               <YAxis />
               <Tooltip />
               <Legend />
@@ -94,7 +94,7 @@ export class PropertyReports extends PureComponent {
             style={{ marginTop: "25px", marginBottom: "25px" }}
           >
             <h4 className=" text-primary visible-xs-block, hidden-xs hidden-sm-down ">
-              Transaction Stacked Bar Graph{" "}
+              Transaction Line Graph{" "}
             </h4>
             <hr className="primary" style={{ marginBottom: "10px" }} />
             <LineChart
@@ -109,7 +109,7 @@ export class PropertyReports extends PureComponent {
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="unit" />
+              <XAxis dataKey="unit.name" />
               <YAxis />
               <Tooltip />
               <Legend />

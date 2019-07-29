@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { getTransaction, deleteTransaction } from "../../actions/transaction";
 import Moment from "react-moment";
 
@@ -20,26 +19,23 @@ export class TransactionList extends Component {
         Cell: row => <Moment date={row.value} />
       },
       {
-        Header: "Property",
-        accessor: "property",
-        filterMethod: (filter, row) => row[filter.id].includes(filter.value)
-      },
-      {
         Header: "Unit",
-        accessor: "unit",
-        filterMethod: (filter, row) => row[filter.id].includes(filter.value)
+        accessor: "unit.name"
       },
       {
         Header: "Tenant",
-        accessor: "tenant",
-        filterMethod: (filter, row) => row[filter.id].includes(filter.value)
+        accessor: "tenant.firstname"
       },
       {
         Header: "Amount Due",
         accessor: "amount_due",
         filterMethod: (filter, row) => row[filter.id].includes(filter.value)
       },
-
+      {
+        Header: "Amount Paid",
+        accessor: "amount_paid",
+        filterMethod: (filter, row) => row[filter.id].includes(filter.value)
+      },
       {
         Header: "Delete",
         accessor: "id",
@@ -54,6 +50,7 @@ export class TransactionList extends Component {
         )
       }
     ];
+
     return (
       <div className="container" style={{ marginBottom: "20px" }}>
         <h1 className=" text-primary text-center visible-xs-block, hidden-xs hidden-sm-down ">
@@ -65,6 +62,7 @@ export class TransactionList extends Component {
           className="-striped -highlight"
           columns={columns}
           data={this.props.transaction}
+          filterable
         />
       </div>
     );

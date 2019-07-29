@@ -21,11 +21,10 @@ export class TenantList extends Component {
       },
       {
         Header: "Unit",
-        accessor: "unit",
-        filterMethod: (filter, row) => row[filter.id].includes(filter.value)
+        accessor: "unit.name"
       },
       {
-        Header: "Phone NUmber",
+        Header: "Phone Number",
         accessor: "phone_number",
         filterMethod: (filter, row) => row[filter.id].includes(filter.value)
       },
@@ -54,6 +53,7 @@ export class TenantList extends Component {
           className="-striped -highlight"
           columns={columns}
           data={this.props.tenant}
+          filterable
         />
       </div>
     );

@@ -64,6 +64,7 @@ export class UnitList extends Component {
           className="-striped -highlight"
           columns={columns}
           data={this.props.unit}
+          filterable
         />
       </div>
     );

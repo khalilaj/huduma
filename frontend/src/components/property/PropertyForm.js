@@ -1,19 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { addProperty } from "../../actions/property";
+
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { addSystem } from "../../actions/system";
 
-export class SystemForm extends Component {
-  state = {
-    system_name: "",
-    system_description: "",
-    system_photo: null
-  };
+class PropertyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+      name: "",
+      location: "",
+      completion_year: ""
+    };
 
-  static propTypes = {
-    addSystem: PropTypes.func.isRequired
-  };
-
+    this.toggle = this.toggle.bind(this);
+  }
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleImageChange = e => {
@@ -24,112 +26,95 @@ export class SystemForm extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { system_name, system_description, system_photo } = this.state;
+    const { name, location, completion_year } = this.state;
     const formData = new FormData();
 
-    formData.append("system_name", system_name);
-    formData.append("system_description", system_description);
-    formData.append("system_photo", system_photo);
-    this.props.addSystem(formData);
+    formData.append("name", name);
+    formData.append("location", location);
+    formData.append("completion_year", completion_year);
+    this.props.addProperty(formData);
 
     this.setState({
-      system_name: "",
-      system_description: "",
-      system_photo: ""
+      name: "",
+      location: "",
+      completion_year: ""
     });
   };
 
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
+
   render() {
-    const { system_name, system_description, system_photo } = this.state;
+    const { name, location, completion_year } = this.state;
     return (
       <div className="mt-3">
-        <button
+        <Button
+          color="primary"
           style={{ marginRight: "150px" }}
-          type="button"
-          className="btn btn-primary text-center float-right"
-          data-toggle="modal"
-          data-target="#exampleModal"
+          className=" text-center float-right"
+          onClick={this.toggle}
         >
-          Add System
-        </button>
-        <div
-          className="modal fade"
-          id="exampleModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
+          Add Property
+        </Button>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
         >
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header  ">
-                <h5 className="modal-title ">Add System</h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
+          <ModalHeader toggle={this.toggle}>Add Property</ModalHeader>
+          <ModalBody>
+            <form onSubmit={this.onSubmit}>
+              <div className="form-group">
+                <label>Property Name</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="name"
+                  onChange={this.onChange}
+                  value={name}
+                />
+              </div>
+              <div className="form-group">
+                <label>Property Location</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  name="location"
+                  onChange={this.onChange}
+                  value={location}
+                />
+              </div>
+              <div className="form-group">
+                <label>Completion Year</label>
+                <input
+                  className="form-control"
+                  type="date"
+                  name="completion_year"
+                  onChange={this.onChange}
+                  value={completion_year}
+                />
+              </div>
+              <div className="form-group text-center">
+                <button type="submit" className="btn  btn-primary">
+                  Submit
                 </button>
               </div>
-              <div className="modal-body">
-                <form onSubmit={this.onSubmit}>
-                  <div className="form-group">
-                    <label>System Name</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="system_name"
-                      onChange={this.onChange}
-                      value={system_name}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>System Photo</label>
-                    <input
-                      type="file"
-                      id="system_photo"
-                      accept="image/png, image/jpeg"
-                      onChange={this.handleImageChange}
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>System Description</label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="system_description"
-                      onChange={this.onChange}
-                      value={system_description}
-                    />
-                  </div>
-                  <div className="form-group text-center">
-                    <button type="submit" className="btn  btn-primary">
-                      Submit
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+            </form>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="secondary" onClick={this.toggle}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
       </div>
     );
   }
 }
-
 export default connect(
   null,
-  { addSystem }
-)(SystemForm);
+  { addProperty }
+)(PropertyForm);

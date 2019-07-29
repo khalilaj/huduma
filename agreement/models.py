@@ -7,19 +7,17 @@ from unit.models import Unit
 
 
 class Agreement(models.Model):
-    tenant = models.ForeignKey(Tenant, on_delete=None, blank=True, null=True)
-    unit = models.ForeignKey(Unit, on_delete=None, blank=True, null=True)
-    property = models.ForeignKey(Property, on_delete=None, blank=True, null=True)
+    tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE, blank=True, null=True)
+    unit = models.ForeignKey(Unit,  on_delete=models.CASCADE, blank=True, null=True)
+    property = models.ForeignKey(Property,  on_delete=models.CASCADE, blank=True, null=True)
     tittle = models.CharField(max_length=100, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     amount_regex = RegexValidator(regex=r'^\+?1?\d{1,20}$',
                                   message="Amount must be entered in the format: '10000'. Up to 20 digits allowed.")
     deposit_amount = models.CharField(validators=[amount_regex], max_length=20, blank=True, null=True)
     rent_amount = models.CharField(validators=[amount_regex], max_length=20, blank=True, null=True)
-    RENT_PAYMENT_TYPE = (
-        ('DY', 'Days'),
-        ('MN', 'Months'),
-        ('WK', 'Weeks'),
+    RENT_PAYMENT_TYPE = ( 
+        ('MN', 'Months'), 
         ('YR', 'Years'),
     )
     day_to_pay_rent = models.IntegerField(blank=True, null=True)

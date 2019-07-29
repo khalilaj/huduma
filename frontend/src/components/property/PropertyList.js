@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { getProperty } from "../../actions/property";
+import { getProperty, deleteProperty } from "../../actions/property";
 
 export class PropertyList extends Component {
   static propTypes = {
@@ -46,10 +46,20 @@ export class PropertyList extends Component {
                   <div className="card-footer text-center">
                     <Link
                       to={`/property/${property.id}/`}
-                      className="btn btn-primary"
+                      className="btn btn-primary mr-4"
                     >
                       View More
                     </Link>
+                    <button
+                      style={{ alignSelf: "center" }}
+                      onClick={this.props.deleteProperty.bind(
+                        this,
+                        property.id
+                      )}
+                      className="btn text-center mr-3 btn-danger "
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
               </div>
@@ -67,5 +77,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getProperty }
+  { getProperty, deleteProperty }
 )(PropertyList);

@@ -16,8 +16,8 @@ class Tenant(models.Model):
                                  message="Phone number must be entered in the format: '07123456789'. Up to 10 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=15, blank=True, null=True)
     dob = models.DateField(blank=True, null=True)
-    property = models.ForeignKey(Property, on_delete=None, blank=True, null=True)
-    unit = models.ForeignKey(Unit, on_delete=None, blank=True, null=True)
+    property = models.ForeignKey(Property,  on_delete=models.CASCADE, blank=True, null=True)
+    unit = models.ForeignKey(Unit,  on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         verbose_name = ('tenant')
