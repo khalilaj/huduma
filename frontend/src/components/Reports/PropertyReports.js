@@ -17,13 +17,8 @@ import {
 } from "recharts";
 
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 
 export class PropertyReports extends PureComponent {
-  static propTypes = {
-    transaction: PropTypes.array.isRequired
-  };
-
   static jsfiddleUrl = "https://jsfiddle.net/alidingling/30763kr7/";
 
   render() {
@@ -150,8 +145,4 @@ export class PropertyReports extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  transaction: state.transaction.transaction
-});
-
-export default connect(mapStateToProps)(PropertyReports);
+export default PropertyReports;

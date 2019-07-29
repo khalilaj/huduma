@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { getTransaction, deleteTransaction } from "../../actions/transaction";
 import Moment from "react-moment";
@@ -9,11 +8,6 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 
 export class TransactionList extends Component {
-  static propTypes = {
-    transaction: PropTypes.array.isRequired,
-    getTransaction: PropTypes.func.isRequired
-  };
-
   componentDidMount() {
     this.props.getTransaction();
   }
@@ -77,11 +71,7 @@ export class TransactionList extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  transaction: state.transaction.transaction
-});
-
 export default connect(
-  mapStateToProps,
+  null,
   { getTransaction, deleteTransaction }
 )(TransactionList);

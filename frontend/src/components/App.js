@@ -51,7 +51,7 @@ class App extends Component {
                 <PrivateRoute exact path="/" component={PropertyDashBoard} />
                 <PrivateRoute
                   exact
-                  path="/conditions"
+                  path="/property/:id"
                   component={PropertyDetails}
                 />
                 <PrivateRoute exact path="/profile" component={UserProfile} />

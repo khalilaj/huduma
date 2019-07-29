@@ -1,6 +1,4 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-
+import React, { Fragment } from "react"; 
 export default function Home() {
   return (
     <div>
@@ -13,7 +11,7 @@ export default function Home() {
         <div id="introCarousel" className="carousel  slide carousel-fade" data-ride="carousel">
           <ol className="carousel-indicators" />
           <div className="carousel-inner" role="listbox">
-            <div className="carousel-item active" style={{backgroundImage: 'url("img/intro-carousel/1.jpg")'}}>
+            <div className="carousel-item active" style={{backgroundImage:  'src("../../img/intro-carousel/1.jpg")'}}>
               <div className="carousel-container">
                 <div className="carousel-content">
                   <h2>We are professional</h2>
@@ -132,7 +130,7 @@ export default function Home() {
             <div className="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
               <div className="about-col">
                 <div className="img">
-                  <img src="img/about-vision.jpg" alt="" className="img-fluid" />
+                  <img src="../../img/intro-carousel/1.jpg" alt="" className="img-fluid" />
                   <div className="icon"><i className="ion-ios-eye-outline" /></div>
                 </div>
                 <h2 className="title"><a href="#">Our Vision</a></h2>
@@ -632,7 +630,7 @@ export default function Home() {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-6 footer-info">
-              <h3>BizPage</h3>
+              <h3>Huduma Realtores</h3>
               <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
             </div>
             <div className="col-lg-3 col-md-6 footer-links">

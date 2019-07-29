@@ -22,10 +22,16 @@ export class Alerts extends Component {
     }
 
     if (message !== prevProps.message) {
-      if (message.addSystem) alert.success(message.addSystem);
-      if (message.addCrop) alert.success(message.addCrop);
-      if (message.deleteSystem) alert.success(message.deleteSystem);
-      if (message.deleteCrop) alert.success(message.deleteCrop);
+      if (message.addAgreement) alert.success(message.addAgreement);
+      if (message.addUnit) alert.success(message.addUnit);
+      if (message.addTransaction) alert.success(message.addTransaction);
+      if (message.addTenant) alert.success(message.addTenant);
+      if (message.addProperty) alert.success(message.addProperty);
+      if (message.deleteAgreement) alert.success(message.deleteAgreement);
+      if (message.deleteUnit) alert.success(message.deleteUnit);
+      if (message.deleteTransaction) alert.success(message.deleteTransaction);
+      if (message.deleteTenant) alert.success(message.deleteTenant);
+      if (message.deleteProperty) alert.success(message.deleteProperty);
       if (message.passwordNotMatch) alert.error(message.passwordNotMatch);
     }
   }

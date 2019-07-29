@@ -1,18 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { getTenant, deleteTenant } from "../../actions/tenant";
-import Moment from "react-moment";
-
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
 export class TenantList extends Component {
-  static propTypes = {
-    tenant: PropTypes.array.isRequired,
-    getTenant: PropTypes.func.isRequired
-  };
-
   componentDidMount() {
     this.props.getTenant();
   }
@@ -68,11 +60,7 @@ export class TenantList extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  tenant: state.tenant.tenant
-});
-
 export default connect(
-  mapStateToProps,
+  null,
   { getTenant, deleteTenant }
 )(TenantList);

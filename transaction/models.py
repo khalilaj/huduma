@@ -38,6 +38,6 @@ class Transaction(models.Model):
         verbose_name_plural = ('transactions')
 
     def __str__(self):
-        return "<Transaction name={} amount_paid={}>".format(self.name , self.payer)
+        return "<Transaction name={} amount_paid={}>".format(self.name , self.amount_paid)
 
 

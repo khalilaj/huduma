@@ -1,21 +1,47 @@
 import React, { Component } from "react";
 
+import _ from "lodash";
+
 import PropertyReports from "../Reports/PropertyReports";
-import TransactionDashboard from "../transaction/TransactionDashboard";
+import TransactionList from "../transaction/TransactionList";
 
-import AgreementDashboard from "../agreement/AgreementDashboard";
+import AgreementList from "../agreement/AgreementList";
 
-import UnitDashboard from "../unit/UnitDashboard";
+import UnitList from "../unit/UnitList";
 
 import PropertyProfile from "./PropertyProfile";
 
-import TenantDashboard from "../tenant/TenantDashboard";
+import TenantList from "../tenant/TenantList";
+
+import { connect } from "react-redux";
+
+import { returnErrors } from "../../actions/messages";
 
 export class PropertyDetails extends Component {
   render() {
+    const id = this.props.match.params.id;
+
+    const property = _.find(this.props.property, function(o) {
+      return o.id == id;
+    });
+
+    const filteredUnit = _.filter(this.props.unit, function(o) {
+      return o.property == id;
+    });
+    const filteredAgreement = _.filter(this.props.agreement, function(o) {
+      return o.property == id;
+    });
+    const filteredTenant = _.filter(this.props.tenant, function(o) {
+      return o.property == id;
+    });
+    const filteredTransaction = _.filter(this.props.transaction, function(o) {
+      return o.property == id;
+    });
+
+    console.log(property);
     return (
       <div style={{ paddingTop: "10px" }}>
-        <ul className="nav nav-pills mb-3 " id="pills-tab" role="tablist">
+        <ul className="nav  nav-pills mb-3 " id="pills-tab" role="tablist">
           <li className="nav-item">
             <a
               className="nav-link active"
@@ -105,7 +131,10 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-report-tab"
           >
             <div className="container">
-              <PropertyReports />
+              <PropertyReports
+                propId={this.props.match.params.id}
+                transaction={filteredTransaction}
+              />
             </div>
           </div>
           <div
@@ -115,7 +144,10 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-transaction-tab"
           >
             <div>
-              <TransactionDashboard />
+              <TransactionList
+                propId={this.props.match.params.id}
+                transaction={filteredTransaction}
+              />
             </div>
           </div>
           <div
@@ -125,7 +157,10 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-tenant-tab"
           >
             <div>
-              <TenantDashboard />
+              <TenantList
+                propId={this.props.match.params.id}
+                tenant={filteredTenant}
+              />
             </div>
           </div>
           <div
@@ -135,7 +170,10 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-agreement-tab"
           >
             <div>
-              <AgreementDashboard />
+              <AgreementList
+                propId={this.props.match.params.id}
+                agreement={filteredAgreement}
+              />
             </div>
           </div>
           <div
@@ -145,7 +183,10 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-unit-tab"
           >
             <div>
-              <UnitDashboard />
+              <UnitList
+                propId={this.props.match.params.id}
+                unit={filteredUnit}
+              />
             </div>
           </div>
           <div
@@ -155,7 +196,7 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-property-tab"
           >
             <div>
-              <PropertyProfile />
+              <PropertyProfile property={property} />
             </div>
           </div>
         </div>
@@ -163,5 +204,15 @@ export class PropertyDetails extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  property: state.property.property,
+  unit: state.unit.unit,
+  agreement: state.agreement.agreement,
+  transaction: state.transaction.transaction,
+  tenant: state.tenant.tenant
+});
 
-export default PropertyDetails;
+export default connect(
+  mapStateToProps,
+  null
+)(PropertyDetails);

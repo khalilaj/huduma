@@ -11,26 +11,6 @@ export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 
-export const GET_SYSTEMS = "GET_SYSTEMS";
-export const DELETE_SYSTEMS = "DELETE_SYSTEMS";
-export const ADD_SYSTEMS = "ADD_SYSTEMS";
-export const CLEAR_SYSTEMS = "CLEAR_SYSTEMS";
-
-export const GET_CONDITIONS = "GET_CONDITIONS";
-export const DELETE_CONDITIONS = "DELETE_CONDITIONS";
-export const ADD_CONDITIONS = "ADD_CONDITIONS";
-export const CLEAR_CONDITIONS = "CLEAR_CONDITIONS";
-
-export const GET_CROPS = "GET_CROPS";
-export const DELETE_CROPS = "DELETE_CROPS";
-export const ADD_CROPS = "ADD_CROPS";
-export const CLEAR_CROPS = "CLEAR_CROPS";
-
-export const GET_PUMPS = "GET_PUMPS";
-export const DELETE_PUMPS = "DELETE_PUMPS";
-export const ADD_PUMPS = "ADD_PUMPS";
-export const CLEAR_PUMPS = "CLEAR_PUMPS";
-
 export const GET_PROPERTY = "GET_PROPERTY";
 export const DELETE_PROPERTY = "DELETE_PROPERTY";
 export const ADD_PROPERTY = "ADD_PROPERTY";
@@ -43,10 +23,11 @@ export const GET_TRANSACTION = "GET_TRANSACTION";
 export const DELETE_TRANSACTION = "DELETE_TRANSACTION";
 export const ADD_TRANSACTION = "ADD_TRANSACTION";
 
-export const GET_TENANT = "GET_TRANSACTION";
+export const GET_TENANT = "GET_TENANT";
 export const DELETE_TENANT = "DELETE_TENANT";
 export const ADD_TENANT = "ADD_TENANT";
 
 export const GET_UNIT = "GET_UNIT";
-export const DELETE_UNIT = "DELETE_UNI";
+export const DELETE_UNIT = "DELETE_UNIT";
 export const ADD_UNIT = "ADD_UNIT";
+export const UNIT_LOADING = "UNIT_LOADING";

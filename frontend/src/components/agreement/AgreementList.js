@@ -8,11 +8,6 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 
 export class AgreementList extends Component {
-  static propTypes = {
-    agreement: PropTypes.array.isRequired,
-    getAgreement: PropTypes.func.isRequired
-  };
-
   componentDidMount() {
     this.props.getAgreement();
   }
@@ -70,11 +65,7 @@ export class AgreementList extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  agreement: state.agreement.agreement
-});
-
 export default connect(
-  mapStateToProps,
+  null,
   { getAgreement, deleteAgreement }
 )(AgreementList);

@@ -27,7 +27,7 @@ export class PropertyList extends Component {
             {this.props.property.map(property => (
               <div className="col-lg-4 col-sm-6 mb-4" key={property.id}>
                 <div className="card h-100">
-                  <Link to="/conditions/">
+                  <Link to={`/property/${property.id}/`}>
                     <img
                       style={{ height: "200px" }}
                       className="card-img-top"
@@ -37,12 +37,17 @@ export class PropertyList extends Component {
                   </Link>
                   <div className="card-body">
                     <h4 className="card-title">
-                      <Link to="/conditions/">{property.name}</Link>
+                      <Link to={`/property/${property.id}/`}>
+                        {property.name}
+                      </Link>
                     </h4>
                     <p className="card-text">{property.location}</p>
                   </div>
                   <div className="card-footer text-center">
-                    <Link to="/conditions/" className="btn btn-primary">
+                    <Link
+                      to={`/property/${property.id}/`}
+                      className="btn btn-primary"
+                    >
                       View More
                     </Link>
                   </div>

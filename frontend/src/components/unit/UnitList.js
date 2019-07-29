@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import { getUnit, deleteUnit } from "../../actions/unit";
 import Moment from "react-moment";
 
@@ -9,11 +7,6 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 
 export class UnitList extends Component {
-  static propTypes = {
-    unit: PropTypes.array.isRequired,
-    getUnit: PropTypes.func.isRequired
-  };
-
   componentDidMount() {
     this.props.getUnit();
   }
@@ -59,6 +52,7 @@ export class UnitList extends Component {
         )
       }
     ];
+
     return (
       <div className="container" style={{ marginBottom: "20px" }}>
         <h1 className=" text-primary text-center visible-xs-block, hidden-xs hidden-sm-down ">
@@ -76,11 +70,7 @@ export class UnitList extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  unit: state.unit.unit
-});
-
 export default connect(
-  mapStateToProps,
+  null,
   { getUnit, deleteUnit }
 )(UnitList);

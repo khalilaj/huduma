@@ -1,11 +1,12 @@
 import axios from "axios";
 import { createMessage, returnErrors } from "./messages";
 
-import { GET_UNIT, DELETE_UNIT, ADD_UNIT } from "./types";
+import { GET_UNIT, DELETE_UNIT, ADD_UNIT, UNIT_LOADING } from "./types";
 import { tokenConfig } from "./auth";
 
 // GET UNIT
 export const getUnit = () => (dispatch, getState) => {
+  dispatch({ type: UNIT_LOADING });
   axios
     .get("/api/unit/", tokenConfig(getState))
     .then(res => {
@@ -21,6 +22,7 @@ export const getUnit = () => (dispatch, getState) => {
 
 // DELETE UNIT
 export const deleteUnit = id => (dispatch, getState) => {
+  dispatch({ type: UNIT_LOADING });
   axios
     .delete(`/api/unit/${id}/`, tokenConfig(getState))
     .then(res => {
@@ -35,6 +37,7 @@ export const deleteUnit = id => (dispatch, getState) => {
 
 // ADD UNIT
 export const addUnit = unit => (dispatch, getState) => {
+  dispatch({ type: UNIT_LOADING });
   axios
     .post("/api/unit/", unit, tokenConfig(getState), {
       headers: {
