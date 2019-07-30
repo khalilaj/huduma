@@ -40,9 +40,7 @@ export class PropertyDetails extends Component {
     const filteredTransaction = _.filter(this.props.transaction, function(o) {
       return o.property.id == id;
     });
-    if (this.props.transaction == []) {
-      console.log("Loading ...");
-    }
+
     return (
       <div style={{ paddingTop: "10px" }}>
         <ul className="nav  nav-pills mb-3 " id="pills-tab" role="tablist">
@@ -56,7 +54,7 @@ export class PropertyDetails extends Component {
               aria-controls="pills-report"
               aria-selected="true"
             >
-              Property Reports
+              Transactions
             </a>
           </li>
           <li className="nav-item">
@@ -69,7 +67,7 @@ export class PropertyDetails extends Component {
               aria-controls="pills-transaction"
               aria-selected="false"
             >
-              Transactions
+              Agreements
             </a>
           </li>
 
@@ -83,7 +81,7 @@ export class PropertyDetails extends Component {
               aria-controls="pills-tenants"
               aria-selected="false"
             >
-              Agreements
+              Tenants
             </a>
           </li>
           <li className="nav-item">
@@ -96,7 +94,7 @@ export class PropertyDetails extends Component {
               aria-controls="pills-agreement"
               aria-selected="false"
             >
-              Tenants
+              Units
             </a>
           </li>
           <li className="nav-item">
@@ -109,7 +107,7 @@ export class PropertyDetails extends Component {
               aria-controls="pills-unit"
               aria-selected="false"
             >
-              Units
+              Property Details
             </a>
           </li>
           <li className="nav-item">
@@ -122,7 +120,7 @@ export class PropertyDetails extends Component {
               aria-controls="pills-property"
               aria-selected="false"
             >
-              Property Details
+              Property Reports
             </a>
           </li>
         </ul>
@@ -135,19 +133,6 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-report-tab"
           >
             <div className="container">
-              <PropertyReports
-                propId={this.props.match.params.id}
-                transaction={filteredTransaction}
-              />
-            </div>
-          </div>
-          <div
-            className="tab-pane fade"
-            id="pills-transaction"
-            role="tabpanel"
-            aria-labelledby="pills-transaction-tab"
-          >
-            <div>
               <TransactionForm
                 propId={this.props.match.params.id}
                 unit={filteredUnit}
@@ -161,9 +146,9 @@ export class PropertyDetails extends Component {
           </div>
           <div
             className="tab-pane fade"
-            id="pills-tenant"
+            id="pills-transaction"
             role="tabpanel"
-            aria-labelledby="pills-tenant-tab"
+            aria-labelledby="pills-transaction-tab"
           >
             <div>
               <AgreementForm
@@ -179,9 +164,9 @@ export class PropertyDetails extends Component {
           </div>
           <div
             className="tab-pane fade"
-            id="pills-agreement"
+            id="pills-tenant"
             role="tabpanel"
-            aria-labelledby="pills-agreement-tab"
+            aria-labelledby="pills-tenant-tab"
           >
             <div>
               <TenantForm
@@ -193,13 +178,23 @@ export class PropertyDetails extends Component {
           </div>
           <div
             className="tab-pane fade"
+            id="pills-agreement"
+            role="tabpanel"
+            aria-labelledby="pills-agreement-tab"
+          >
+            <div>
+              <UnitForm propId={this.props.match.params.id} />
+              <UnitList unit={filteredUnit} />
+            </div>
+          </div>
+          <div
+            className="tab-pane fade"
             id="pills-unit"
             role="tabpanel"
             aria-labelledby="pills-unit-tab"
           >
             <div>
-              <UnitForm propId={this.props.match.params.id} />
-              <UnitList unit={filteredUnit} />
+              <PropertyProfile property={property} />
             </div>
           </div>
           <div
@@ -209,7 +204,10 @@ export class PropertyDetails extends Component {
             aria-labelledby="pills-property-tab"
           >
             <div>
-              <PropertyProfile property={property} />
+              <PropertyReports
+                propId={this.props.match.params.id}
+                transaction={filteredTransaction}
+              />
             </div>
           </div>
         </div>

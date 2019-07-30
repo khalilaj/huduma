@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { getTransaction, deleteTransaction } from "../../actions/transaction";
 import Moment from "react-moment";
+import { Link } from "react-router-dom";
 
 import ReactTable from "react-table";
 import "react-table/react-table.css";
@@ -35,6 +36,19 @@ export class TransactionList extends Component {
         Header: "Amount Paid",
         accessor: "amount_paid",
         filterMethod: (filter, row) => row[filter.id].includes(filter.value)
+      },
+      {
+        Header: "View",
+        accessor: "id",
+        Cell: row => (
+          <Link
+            to={`/transaction/${row.value}/`}
+            className="btn btn-success btn-sm"
+          >
+            {" "}
+            View More
+          </Link>
+        )
       },
       {
         Header: "Delete",

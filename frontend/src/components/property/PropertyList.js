@@ -31,7 +31,7 @@ export class PropertyList extends Component {
                     <img
                       style={{ height: "200px" }}
                       className="card-img-top"
-                      src="http://placehold.it/700x400"
+                      src={property.property_photo}
                       alt="http://placehold.it/700x400"
                     />
                   </Link>
@@ -41,7 +41,10 @@ export class PropertyList extends Component {
                         {property.name}
                       </Link>
                     </h4>
-                    <p className="card-text">{property.location}</p>
+                    <h6 className="card-text">Location: {property.location}</h6>
+                    <h6 className="card-text">
+                      Completion Year: {property.completion_year}
+                    </h6>
                   </div>
                   <div className="card-footer text-center">
                     <Link

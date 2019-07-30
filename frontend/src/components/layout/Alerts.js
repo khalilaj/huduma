@@ -27,6 +27,11 @@ export class Alerts extends Component {
       if (message.addTransaction) alert.success(message.addTransaction);
       if (message.addTenant) alert.success(message.addTenant);
       if (message.addProperty) alert.success(message.addProperty);
+      if (message.editAgreement) alert.success(message.editAgreement);
+      if (message.editProperty) alert.success(message.editProperty);
+      if (message.editTenant) alert.success(message.editTenant);
+      if (message.editUnit) alert.success(message.editUnit);
+      if (message.editTransaction) alert.success(message.editTransaction);
       if (message.deleteAgreement) alert.success(message.deleteAgreement);
       if (message.deleteUnit) alert.success(message.deleteUnit);
       if (message.deleteTransaction) alert.success(message.deleteTransaction);

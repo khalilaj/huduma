@@ -14,6 +14,7 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 export const GET_PROPERTY = "GET_PROPERTY";
 export const DELETE_PROPERTY = "DELETE_PROPERTY";
 export const ADD_PROPERTY = "ADD_PROPERTY";
+export const EDIT_PROPERTY = "EDIT_PROPERTY";
 
 export const GET_AGREEMENT = "GET_AGREEMENT";
 export const DELETE_AGREEMENT = "DELETE_AGREEMENT";
@@ -31,3 +32,8 @@ export const GET_UNIT = "GET_UNIT";
 export const DELETE_UNIT = "DELETE_UNIT";
 export const ADD_UNIT = "ADD_UNIT";
 export const UNIT_LOADING = "UNIT_LOADING";
+export const EDIT_UNIT = "EDIT_UNIT";
+
+export const EDIT_TRANSACTION = "EDIT_TRANSACTION";
+
+export const EDIT_AGREEMENT = "EDIT_AGREEMENT";

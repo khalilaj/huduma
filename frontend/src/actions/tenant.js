@@ -52,3 +52,23 @@ export const addTenant = tenant => (dispatch, getState) => {
       dispatch(returnErrors(err.response.data, err.response.status))
     );
 };
+
+// EDIT TENANT
+export const editTenant = (tenant, id) => (dispatch, getState) => {
+  axios
+    .put(`/api/tenant/${id}/`, tenant, tokenConfig(getState), {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    })
+    .then(res => {
+      dispatch(createMessage({ editTenant: "Tenant Edited" }));
+      dispatch({
+        type: EDIT_TENANT,
+        payload: res.data
+      });
+    })
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
+};

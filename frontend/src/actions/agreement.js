@@ -1,7 +1,12 @@
 import axios from "axios";
 import { createMessage, returnErrors } from "./messages";
 
-import { GET_AGREEMENT, DELETE_AGREEMENT, ADD_AGREEMENT } from "./types";
+import {
+  GET_AGREEMENT,
+  DELETE_AGREEMENT,
+  ADD_AGREEMENT,
+  EDIT_AGREEMENT
+} from "./types";
 import { tokenConfig } from "./auth";
 
 // GET AGREEMENT
@@ -45,6 +50,26 @@ export const addAgreement = agreement => (dispatch, getState) => {
       dispatch(createMessage({ addAgreement: "Agreement Added" }));
       dispatch({
         type: ADD_AGREEMENT,
+        payload: res.data
+      });
+    })
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
+};
+
+// EDIT AGREEMENT
+export const editAgreement = (agreement, id) => (dispatch, getState) => {
+  axios
+    .put(`/api/agreement/${id}/`, agreement, tokenConfig(getState), {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    })
+    .then(res => {
+      dispatch(createMessage({ editAgreement: "Agreement Edited" }));
+      dispatch({
+        type: EDIT_AGREEMENT,
         payload: res.data
       });
     })

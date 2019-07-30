@@ -1,7 +1,13 @@
 import axios from "axios";
 import { createMessage, returnErrors } from "./messages";
 
-import { GET_UNIT, DELETE_UNIT, ADD_UNIT, UNIT_LOADING } from "./types";
+import {
+  GET_UNIT,
+  DELETE_UNIT,
+  ADD_UNIT,
+  UNIT_LOADING,
+  EDIT_UNIT
+} from "./types";
 import { tokenConfig } from "./auth";
 
 // GET UNIT
@@ -48,6 +54,26 @@ export const addUnit = unit => (dispatch, getState) => {
       dispatch(createMessage({ addUnit: "Unit Added" }));
       dispatch({
         type: ADD_UNIT,
+        payload: res.data
+      });
+    })
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
+};
+
+// EDIT UNIT
+export const editUnit = (unit, id) => (dispatch, getState) => {
+  axios
+    .put(`/api/unit/${id}/`, unit, tokenConfig(getState), {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    })
+    .then(res => {
+      dispatch(createMessage({ editUnit: "Unit Edited" }));
+      dispatch({
+        type: EDIT_UNIT,
         payload: res.data
       });
     })

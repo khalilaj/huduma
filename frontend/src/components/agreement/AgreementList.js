@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getAgreement, deleteAgreement } from "../../actions/agreement";
 import Moment from "react-moment";
-
+import { Link } from "react-router-dom";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
@@ -32,6 +32,19 @@ export class AgreementList extends Component {
       {
         Header: " Unit Name",
         accessor: "unit.name"
+      },
+      {
+        Header: "View",
+        accessor: "id",
+        Cell: row => (
+          <Link
+            to={`/agreement/${row.value}/`}
+            className="btn btn-success btn-sm"
+          >
+            {" "}
+            View More
+          </Link>
+        )
       },
       {
         Header: "Delete",

@@ -5,34 +5,17 @@ import PropTypes from "prop-types";
 export class UserProfile extends Component {
   state = {
     username: "",
-    email: "",
-    password: "",
-    password2: ""
+    email: ""
   };
 
   static propTypes = {
     user: PropTypes.object.isRequired
   };
 
-  onSubmit = e => {
-    e.preventDefault();
-    const { username, email, password, password2 } = this.state;
-    if (password !== password2) {
-      this.props.createMessage({ passwordNotMatch: "Passwords do not match" });
-    } else {
-      const newUser = {
-        username,
-        password,
-        email
-      };
-      this.props.register(newUser);
-    }
-  };
-
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const { username, email, password, password2 } = this.state;
+    const { username, email } = this.props.user;
     return (
       <div>
         <div className="container bootstrap snippet">
@@ -44,9 +27,6 @@ export class UserProfile extends Component {
             <hr className="bg-primary" style={{ borderColor: "50px solid" }} />
             <div className="row" style={{ marginTop: "50px" }}>
               <div className="col">
-                <h3 className=" text-primary text-center visible-xs-block, hidden-xs hidden-sm-down ">
-                  Edit User Details
-                </h3>
                 <form onSubmit={this.onSubmit}>
                   <div className="form-group">
                     <label>Username</label>
@@ -56,6 +36,7 @@ export class UserProfile extends Component {
                       name="username"
                       onChange={this.onChange}
                       value={username}
+                      disabled
                       required
                     />
                   </div>
@@ -65,37 +46,11 @@ export class UserProfile extends Component {
                       type="email"
                       className="form-control"
                       name="email"
+                      disabled
                       onChange={this.onChange}
                       value={email}
                       required
                     />
-                  </div>
-                  <div className="form-group">
-                    <label>Password</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      name="password"
-                      onChange={this.onChange}
-                      value={password}
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Confirm Password</label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      name="password2"
-                      onChange={this.onChange}
-                      value={password2}
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <button type="submit" className="btn btn-block btn-primary">
-                      Save
-                    </button>
                   </div>
                 </form>
               </div>

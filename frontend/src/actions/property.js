@@ -52,3 +52,23 @@ export const addProperty = property => (dispatch, getState) => {
       dispatch(returnErrors(err.response.data, err.response.status))
     );
 };
+
+// EDIT PROPERTY
+export const editProperty = (property, id) => (dispatch, getState) => {
+  axios
+    .put(`/api/property/${id}/`, property, tokenConfig(getState), {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    })
+    .then(res => {
+      dispatch(createMessage({ editProperty: "Property Edited" }));
+      dispatch({
+        type: EDIT_PROPERTY,
+        payload: res.data
+      });
+    })
+    .catch(err =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
+};

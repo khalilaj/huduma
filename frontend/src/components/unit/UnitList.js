@@ -5,6 +5,7 @@ import Moment from "react-moment";
 
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import { Link } from "react-router-dom";
 
 export class UnitList extends Component {
   componentDidMount() {
@@ -37,6 +38,16 @@ export class UnitList extends Component {
         Header: "No of bathrooms",
         accessor: "no_of_bathroom",
         filterMethod: (filter, row) => row[filter.id].includes(filter.value)
+      },
+      {
+        Header: "View",
+        accessor: "id",
+        Cell: row => (
+          <Link to={`/unit/${row.value}/`} className="btn btn-success btn-sm">
+            {" "}
+            View More
+          </Link>
+        )
       },
       {
         Header: "Delete",

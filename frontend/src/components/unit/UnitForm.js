@@ -121,7 +121,7 @@ class UnitForm extends React.Component {
               </div>
 
               <div className="form-group text-center">
-                <button type="submit" className="btn  btn-primary">
+                <button type="submit" className="btn btn-block btn-success">
                   Submit
                 </button>
               </div>

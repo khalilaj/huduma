@@ -11,7 +11,8 @@ class PropertyForm extends React.Component {
       modal: false,
       name: "",
       location: "",
-      completion_year: ""
+      completion_year: "",
+      property_photo: null
     };
 
     this.toggle = this.toggle.bind(this);
@@ -20,24 +21,26 @@ class PropertyForm extends React.Component {
 
   handleImageChange = e => {
     this.setState({
-      system_photo: e.target.files[0]
+      property_photo: e.target.files[0]
     });
   };
 
   onSubmit = e => {
     e.preventDefault();
-    const { name, location, completion_year } = this.state;
+    const { name, location, completion_year, property_photo } = this.state;
     const formData = new FormData();
 
     formData.append("name", name);
     formData.append("location", location);
+    formData.append("property_photo", property_photo);
     formData.append("completion_year", completion_year);
     this.props.addProperty(formData);
 
     this.setState({
       name: "",
       location: "",
-      completion_year: ""
+      completion_year: "",
+      property_photo: null
     });
   };
 
@@ -49,6 +52,7 @@ class PropertyForm extends React.Component {
 
   render() {
     const { name, location, completion_year } = this.state;
+
     return (
       <div className="mt-3">
         <Button
@@ -60,6 +64,7 @@ class PropertyForm extends React.Component {
           Add Property
         </Button>
         <Modal
+          style={{ marginTop: "50px" }}
           isOpen={this.state.modal}
           toggle={this.toggle}
           className={this.props.className}
@@ -75,6 +80,7 @@ class PropertyForm extends React.Component {
                   name="name"
                   onChange={this.onChange}
                   value={name}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -85,6 +91,17 @@ class PropertyForm extends React.Component {
                   name="location"
                   onChange={this.onChange}
                   value={location}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Property Photo</label>
+                <input
+                  type="file"
+                  id="system_photo"
+                  accept="image/png, image/jpeg"
+                  onChange={this.handleImageChange}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -95,10 +112,11 @@ class PropertyForm extends React.Component {
                   name="completion_year"
                   onChange={this.onChange}
                   value={completion_year}
+                  required
                 />
               </div>
               <div className="form-group text-center">
-                <button type="submit" className="btn  btn-primary">
+                <button type="submit" className="btn btn-block btn-success">
                   Submit
                 </button>
               </div>

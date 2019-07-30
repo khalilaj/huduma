@@ -4,6 +4,7 @@ import { getTenant, deleteTenant } from "../../actions/tenant";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
+import { Link } from "react-router-dom";
 export class TenantList extends Component {
   componentDidMount() {
     this.props.getTenant();
@@ -27,6 +28,16 @@ export class TenantList extends Component {
         Header: "Phone Number",
         accessor: "phone_number",
         filterMethod: (filter, row) => row[filter.id].includes(filter.value)
+      },
+      {
+        Header: "View",
+        accessor: "id",
+        Cell: row => (
+          <Link to={`/tenant/${row.value}/`} className="btn btn-success btn-sm">
+            {" "}
+            View More
+          </Link>
+        )
       },
       {
         Header: "Delete",

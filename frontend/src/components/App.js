@@ -13,6 +13,10 @@ import AlertTemplate from "react-alert-template-basic";
 
 import Home from "./layout/Home";
 import PropertyDetails from "../components/property/PropertyDetails";
+import UnitProfile from "../components/unit/UnitProfile";
+import TransactionProfile from "../components/transaction/TransactionProfile";
+import TenantProfile from "../components/tenant/TenantProfile";
+import AgreementProfile from "../components/agreement/AgreementProfile";
 import UserProfile from "./auth/UserProfile";
 
 import PropertyDashBoard from "./property/PropertyDashBoard";
@@ -53,6 +57,22 @@ class App extends Component {
                   exact
                   path="/property/:id"
                   component={PropertyDetails}
+                />
+                <PrivateRoute exact path="/unit/:id" component={UnitProfile} />
+                <PrivateRoute
+                  exact
+                  path="/transaction/:id"
+                  component={TransactionProfile}
+                />
+                <PrivateRoute
+                  exact
+                  path="/tenant/:id"
+                  component={TenantProfile}
+                />
+                <PrivateRoute
+                  exact
+                  path="/agreement/:id"
+                  component={AgreementProfile}
                 />
                 <PrivateRoute exact path="/profile" component={UserProfile} />
                 <Route exact path="/home" component={Home} />
